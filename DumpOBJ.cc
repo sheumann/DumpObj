@@ -612,7 +612,7 @@ switch(kind & 31) {
       printf("direct page/stack segment");
       break;
    default:
-      printf("unknown segment: $04X", kind);
+      printf("unknown segment: %04X", kind);
    }
 }
 
@@ -2249,7 +2249,7 @@ if (constant >= 2) {
       if (constant) {
          ReadOpVal(&number,4,input,numsex);
          PutCTPC();
-         printf("         DC    I4'%d'", (long) number);
+         printf("         DC    I4'%ld'", (long) number);
          pc += 4;
          count += 4;
          }
@@ -2265,7 +2265,7 @@ if (constant >= 2) {
       if (constant) {   
          ReadOpVal(&number,4,input,numsex);
          PutCTPC();
-         printf("         DC    I4'%d'", (long) number);
+         printf("         DC    I4'%ld'", (long) number);
          pc += 4;
          count += 4;
          }
@@ -2500,7 +2500,7 @@ while (NextSeg()) {
                ch = 0;
                }
             else
-               printf("%02X", ch);
+               printf("%02lX", ch);
             if ((ch & 127) > 31)
                chline[k] = ch & 127;
             else
